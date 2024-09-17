@@ -6,6 +6,12 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+
+
 // CORS configuration
 const io = socketio(server, {
   cors: {
