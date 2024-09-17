@@ -1,4 +1,4 @@
-const socket = io('https://node-js-chatting-app.vercel.app/');
+const socket = io('https://node-js-chatting-app.vercel.app');
 let username = '';
 
 // Elements
