@@ -1,9 +1,8 @@
 {
-  "name": "chat-app",
+  "name": "your-project",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [],
   "author": "",
