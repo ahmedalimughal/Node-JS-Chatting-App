@@ -14,9 +14,9 @@ const users = new Map(); // Map to track connected users
 // Serve static files (like HTML, CSS, JS)
 app.use(express.static('public'));
 
-// Redirect root URL to /public
+// Redirect root URL to index.html
 app.get('/', (req, res) => {
-  res.redirect('/public');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Handle connection with Socket.io
