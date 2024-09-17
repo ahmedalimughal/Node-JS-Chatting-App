@@ -1,7 +1,6 @@
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
-const path = require('path');
 
 // Initialize Express
 const app = express();
@@ -14,10 +13,9 @@ const users = new Map(); // Map to track connected users
 // Serve static files (like HTML, CSS, JS)
 app.use(express.static('public'));
 
-// Redirect root URL to index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// Start the server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Handle connection with Socket.io
 io.on('connection', (socket) => {
@@ -46,7 +44,3 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
   });
 });
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
