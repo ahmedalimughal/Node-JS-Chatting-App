@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Username Modal -->
+  <div id="usernameModal" class="modal">
+    <div class="modal-content">
+      <h2>Enter Your Name</h2>
+      <input type="text" id="username" placeholder="Enter your name" required>
+      <button id="saveNameBtn" class="btn">Start Chatting</button>
+    </div>
+  </div>
+
+  <div class="chat-container" id="chat-container" style="display: none;">
+    <header class="chat-header">
+      <h1>Chat App</h1>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3>Active Users</h3>
+        <ul id="users-list"></ul>
+      </div>
+      <div class="chat-messages-container">
+        <div id="chat-messages" class="chat-messages"></div>
+      </div>
+    </main>
+    <form id="chat-form" class="chat-form">
+      <input type="text" id="msg" class="chat-input" placeholder="Enter message" required autocomplete="off">
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
