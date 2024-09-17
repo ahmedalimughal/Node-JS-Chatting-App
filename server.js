@@ -1,17 +1,29 @@
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
+const cors = require('cors');
 
 // Initialize Express
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: '*', // Allow requests from any origin (for security, specify the domain here)
+    methods: ['GET', 'POST']
+  }
+});
 
 // Store connected users
 const users = new Map(); // Map to track connected users
 
 // Serve static files (like HTML, CSS, JS)
 app.use(express.static('public'));
+
+// Allow CORS for all routes (optionally restrict to specific origins)
+app.use(cors({
+  origin: '*', // You can replace '*' with 'https://your-netlify-domain.netlify.app' for better security
+  methods: ['GET', 'POST']
+}));
 
 // Start the server
 const PORT = process.env.PORT || 3000;
